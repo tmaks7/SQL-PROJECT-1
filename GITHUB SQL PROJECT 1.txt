@@ -1,0 +1,103 @@
+CREATING A TABLE 1
+
+create table interview.users
+(
+user_id int primary key,
+user_name varchar(30) not null,
+email varchar(50));
+
+INSERTING VALUES INTO THE TABLE
+
+insert into interview.users values
+(1, 'Sumit', 'sumit@gmail.com'),
+(2, 'Reshma', 'reshma@gmail.com'),
+(3, 'Farhana', 'farhana@gmail.com'),
+(4, 'Robin', 'robin@gmail.com'),
+(5, 'Robin', 'robin@gmail.com');
+
+QUERYING ALL THE RECORDS IN THE TABLE
+select * from interview.users;
+
+QUESTION 1
+Write a SQL query to fetch all the duplicate records from a table.
+
+SOLUTION
+select user_id,user_name, email from 
+(select *,
+row_number()over(partition by user_name order by user_id) rw
+from interview.users) x
+where x.rw<> 1;
+
+
+CREATING TABLE 2
+
+create table interview.employee
+( emp_ID int primary key,
+ emp_NAME varchar(50) not null,
+ DEPT_NAME varchar(50),
+ SALARY int);
+
+INSERTING VALUES INTO THE TABLE
+
+insert into interview.employee values
+(101, 'Mohan', 'Admin', 4000),
+(102, 'Rajkumar', 'HR', 3000),
+(103, 'Akbar', 'IT', 4000),
+(104, 'Dorvin', 'Finance', 6500),
+(105, 'Rohit', 'HR', 3000),
+(106, 'Rajesh',  'Finance', 5000),
+(107, 'Preet', 'HR', 7000),
+(108, 'Maryam', 'Admin', 4000),
+(109, 'Sanjay', 'IT', 6500),
+(110, 'Vasudha', 'IT', 7000),
+(111, 'Melinda', 'IT', 8000),
+(112, 'Komal', 'IT', 10000),
+(113, 'Gautham', 'Admin', 2000),
+(114, 'Manisha', 'HR', 3000),
+(115, 'Chandni', 'IT', 4500),
+(116, 'Satya', 'Finance', 6500),
+(117, 'Adarsh', 'HR', 3500),
+(118, 'Tejaswi', 'Finance', 5500),
+(119, 'Cory', 'HR', 8000),
+(120, 'Monica', 'Admin', 5000),
+(121, 'Rosalin', 'IT', 6000),
+(122, 'Ibrahim', 'IT', 8000),
+(123, 'Vikram', 'IT', 8000),
+(124, 'Dheeraj', 'IT', 11000);
+
+QUERYING ALL THE RECORDS IN THE TABLE
+
+select * from interview.employee;
+
+QUESTION 2A
+Write a SQL query to fetch the second last record from a employee table.
+
+SOLUTION I
+select * from interview.employee
+limit 1 offset 22;
+
+SOLUTION II
+select * from interview.employee
+order by emp_id desc
+limit 1 offset 1;
+
+SOLUTION III
+select * from
+(select *, 
+row_number()over(order by emp_id desc) rn
+from interview.employee) x
+where x.rn =2;
+
+
+QUESTION 2B
+Write a SQL query to display only the details of employees who either earn the highest salary or the lowest salary in each department from the employee table.
+
+SOLUTION
+Select emp_id, emp_name, dept_name, salary
+From (
+    select *,
+           rank() over (partition by dept_name order by salary asc) as lowest_salary_rank,
+           rank() over (partition by dept_name order by salary desc) as highest_salary_rank
+    from interview.employee
+) as subq
+Where lowest_salary_rank = 1 or highest_salary_rank = 1;
