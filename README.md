@@ -15,7 +15,7 @@ For This Project I created two Tables namely USERS TABLE and EMPLOYEE TABLE,
 See table below
 
 USERS          |    EMPLOYEE
-
-![](users.png)  | ![](employee.png)
+:---:| :---:
+![](users.png) | ![](employee.png)
 
 CONCLUSION
