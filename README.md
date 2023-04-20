@@ -1,8 +1,8 @@
 # SQL-PROJECT-1
-This Project Introduces the Concept of Joins,Subquery,CTE(s),Windows Function,Coalesce while solving Real life Problems.
+This Project introduces the Concept of Joins,Subquery,Windows Function while solving Real life Problems. 
 
 ## INTRODUCTION
-I solved some interview questions to improve my knowledge on Joins,Subquery,CTE(s),Windows Function,Coalesce. You'll be seeing my step by step approach in solving this Questions,I enjoy taking this Fruit🥑while solving this Questions 😄
+I solved some interview questions to improve my knowledge on Joins,Subquery,Windows Function. You'll be seeing my step by step approach in solving this Questions,I enjoy taking this Fruit🥑while solving SQL Questions. 😄
 
 ### PROBLEM STATEMENT
  These questions aim at
@@ -22,4 +22,5 @@ USERS          |    EMPLOYEE
 :---:| :---:
 ![](users.png) | ![](employee.png)
 
-CONCLUSION 
+### CONCLUSION 
+I have been able to use my knowledge from Joins,Subquery,Windows Function to solve few real life challenges
