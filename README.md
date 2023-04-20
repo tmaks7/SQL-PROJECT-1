@@ -5,7 +5,7 @@ This Project Introduces the Concept of Joins,Subquery,CTE(s),Windows Function,Co
 I solved some interview questions to improve my knowledge on Joins,Subquery,CTE(s),Windows Function,Coalesce. You'll be seeing my step by step approach in solving this Questions,I enjoy taking this Fruit🥑while solving this Questions 😄
 
 ### PROBLEM STATEMENT
- This questions aim at
+ These questions aim at
 - Writing a SQL query to fetch all the duplicate records from a table 
 - Writing a SQL query to fetch the second last record from a employee table
 - Writing a SQL query to display only the details of employees who either earn the highest salary or the lowest salary in each department from the employee table.
